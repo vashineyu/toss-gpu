@@ -15,12 +15,12 @@ lint:
     changes:
       - toss_gpu/*.py
       - .gitlab-ci.yml
-    except:
-      - tags
-      - master
-    script:
-      - pip install flake8
-      - flake8 toss_gpu
+  except:
+    - tags
+    - master
+  script:
+    - pip install flake8
+    - flake8 toss_gpu
 
 pypi:
   stage: release
