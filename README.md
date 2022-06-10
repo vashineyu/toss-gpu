@@ -1,4 +1,4 @@
-#Toss-GPU
+# Toss-GPU
 
 This package is used to toss gpu for a local machine when you don't want to check gpu everytime by `nvidia-smi`
 

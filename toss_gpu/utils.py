@@ -17,4 +17,3 @@ def get_gpus_on_demand(
         i for i, is_available in enumerate(available_gpus) if is_available
     ][:max_request]
     return available_gpu_ids
-

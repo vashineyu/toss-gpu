@@ -7,13 +7,12 @@ echo $GPU_ID # should get some ids
 mpirun -np ${N_GPU} ...
 
 """
-import argparse
-import os
 import sys
-import subprocess
 
 import click
+
 from .utils import get_gpus_on_demand
+
 
 @click.command()
 @click.option('--min-request', default=1, help='Minimum #gpu to request', type=int)
