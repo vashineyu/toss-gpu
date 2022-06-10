@@ -1,0 +1,34 @@
+image: python3.7
+
+variables:
+  VENV_PATH: './venv'
+
+stages:
+  - lint
+  - release
+
+lint:
+  stage: lint
+  only:
+    refs:
+      - branches
+    changes:
+      - toss_gpu/*.py
+      - .gitlab-ci.yml
+    except:
+      - tags
+      - master
+    script:
+      - pip install flake8
+      - flake8 toss_gpu
+
+pypi:
+  stage: release
+  only:
+    - tags
+  before_script:
+    - pip install poetry twine
+  script:
+    - poetry version $CI_COMMIT_TAG
+    - poetry build
+    - TWINE_PASSWORD=$CI_JOB_TOKEN TWINE_USERNAME=gitlab-ci-token python3 -m twine upload --repository-url https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/packages/pypi dist/*
