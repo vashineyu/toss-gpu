@@ -4,7 +4,7 @@ import GPUtil
 def get_gpus_on_demand(
     min_request: int = 1,
     max_request: int = 1,
-    memory_lb: int = 1024
+    memory_lb: int = 1024,
 ):
     available_gpus = GPUtil.getAvailability(
         GPUtil.getGPUs(),

@@ -12,9 +12,17 @@ click = ">=8.1"
 [tool.poetry.dev-dependencies]
 flake8 = "*"
 pytest = "*"
+nitpick = "*"
+wemake-python-styleguide = ">=0.15"
 
 [tool.poetry.scripts]
 toss-gpu = "toss_gpu.main:cli"
+
+[tool.nitpick]
+style = [
+    "https://github.com/aetherAI/Pypi-Project-Template/blob/master/nitpick-style/lint.toml",
+]
+cache = "never"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
