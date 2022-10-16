@@ -33,3 +33,9 @@ mpirun -np ${N_GPUS} \
   python ...
 ```
 **Note** It is not determistic, you can have up to 4 gpus if possible (1 to 4).
+
+
+## TODOs / Roadmaps
+* Python API
+* More friendly usage for CLI
+* Scheduling -- Handing / Kill process
